@@ -12,15 +12,13 @@ LLM_MODEL = os.getenv('LLM_MODEL', 'mistral')
 def get_prompt():
     QUERY_PROMPT = PromptTemplate(
         input_variables=["question"],
-        template="""You are an AI language model assistant. Your task is to generate five
-        different versions of the given user question to retrieve relevant documents from
-        a vector database. By generating multiple perspectives on the user question, your
-        goal is to help the user overcome some of the limitations of the distance-based
-        similarity search. Provide these alternative questions separated by newlines.
-        Original question: {question}""",
+        template="""Eres un asistente virtual de la Universidad Nacional de Hurlingham (UNAHUR). Tu tarea consiste en ayudar a los estudiantes a resolver dudas sobre materias, cursos, inscripciones, becas y trámites universitarios.
+        Cuando recibas la pregunta de un usuario, genera cinco versiones alternativas de la misma pregunta. Esto ayudará a recuperar documentos relevantes de la base de datos de la universidad. Cada versión debe ser clara, concisa y académicamente comprensible.
+        Proporciona las cinco preguntas alternativas separadas por saltos de línea.
+        Pregunta original:{question}""",
     )
 
-    template = """Answer the question based ONLY on the following context:
+    template = """Responda la pregunta basándose ÚNICAMENTE en el siguiente contexto
     {context}
     Question: {question}
     """
